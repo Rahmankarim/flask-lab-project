@@ -1,3 +1,47 @@
+# Flask Lab Project — main
+
+This folder contains the Flask app, tests, Dockerfile, and CI workflow used in the lab.
+
+Contents
+
+- `app.py` — Flask application with `/`, `/health`, and `/data` endpoints.
+- `requirements.txt` — Python dependencies.
+- `Dockerfile` — container image build.
+- `tests/test_app.py` — pytest unit tests.
+- `.github/workflows/ci-cd.yml` — GitHub Actions workflow.
+
+How to build, test, and run
+
+1. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+2. Run tests
+
+```bash
+python -m pytest -q
+```
+
+3. Run the app locally
+
+```bash
+python app.py
+```
+
+4. Build Docker image
+
+```bash
+docker build -t flask-lab-project:latest .
+docker run -p 5000:5000 flask-lab-project:latest
+```
+
+CI/CD notes
+
+- Workflow triggers on push and PRs to `main` and will run tests and build the Docker image.
+- To push to Docker Hub, configure `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN` in repository secrets.
+
 # Flask Lab Project (main)
 
 ## Overview
